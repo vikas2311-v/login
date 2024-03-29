@@ -4,7 +4,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
 
-    var emailValid = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$/;
+    var emailValid = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]/;
     var passworValid = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 
     if (!emailValid.test(email)) {
