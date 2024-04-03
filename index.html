@@ -3,32 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="styes.css">
 </head>
 
 <body>
     <div class="container">
         <h2>Login</h2>
-        <form id="loginForm">
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
-                <div id="error"></div>
-            </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                <div id="error-message"></div>
-            </div>
-            <div>
-                <button type="submit">Login</button>
-            </div>
+        <form id="loginForm" onsubmit="return validateForm()">
+            <input type="text" placeholder="Email" id="email" onkeyup="white()" required>
+            <br><br>
+            <input type="password" placeholder="Password" id="password" onkeyup="black()" required>
+            <br><br>
+            <error id="alert"></error>
+            <br>
+            <input type="submit" id="login" value="Login" onclick="submitForm(event)">
         </form>
     </div>
 
-    <script src="script.js"></script>
+
+    <script src="scrip.js"></script>
 </body>
 
 </html>
