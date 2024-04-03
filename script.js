@@ -1,21 +1,53 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
+var pattern = /\s/g;
+var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
+var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+var alertp = document.getElementById('alert');
+
+function white() {
+    var user = document.getElementById("email").value;
+
+    if (user.match(pattern)) {
+        alertp.innerHTML = "** White Spaces are not allowed in Email";
+        return false;
+    }
+
+    if (!user.match(emailPattern)) {
+        alertp.innerHTML = "** Invalid Email Format";
+        return false;
+    }
+
+    alertp.innerHTML = "";
+    return true;
+}
+
+function black() {
+    var pass = document.getElementById("password").value;
+
+    if (pass.match(pattern)) {
+        alertp.innerHTML = "** White Spaces are not allowed in Password";
+        return false;
+    }
+
+    if (!pass.match(passwordPattern)) {
+        alertp.innerHTML = "* Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character";
+        return false;
+    }
+
+    alertp.innerHTML = "";
+    return true;
+}
+
+function validateForm() {
+    if (!white() || !black()) {
+        alertp.innerHTML = "* Please fill all details";
+        return false;
+    }
+    return true;
+}
+
+function submitForm(event) {
     event.preventDefault();
-
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-
-    var emailValid = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]/;
-    var passworValid = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
-
-    if (!emailValid.test(email)) {
-        document.getElementById('error').innerText = 'Invalid email format';
-        return;
+    if (validateForm()) {
+        window.location.href = "welcome.html";
     }
-
-    if (!passworValid.test(password)) {
-        document.getElementById('error-message').innerText = 'Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character.';
-        return;
-    }
-
-    window.location.href = 'welcome.html';
-});
+}
