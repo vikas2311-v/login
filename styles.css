@@ -32,7 +32,8 @@ h2 {
     margin-bottom: 5px;
 }
 
-.input-group input {
+#email,
+#password {
     width: 95%;
     padding: 8px;
     align-self: center;
@@ -40,7 +41,7 @@ h2 {
     border-radius: 3px;
 }
 
-button {
+#login {
     width: 100%;
     padding: 10px;
     background-color: #007bff;
@@ -50,13 +51,7 @@ button {
     cursor: pointer;
 }
 
-#error {
-    color: red;
-    margin-top: 10px;
-    text-align: center;
-}
-
-#error-message {
+#alert {
     color: red;
     margin-top: 10px;
     text-align: center;
